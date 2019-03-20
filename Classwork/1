@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+ void g(char *s,char *q);
+int main(void)
+{
+  char s[]="k_______";
+  char q[]="k_";
+  puts(s);
+  
+  g(s,q);
+  puts(s);
+
+ 
+
+  
+}
+
+void g(char *s, char *q)
+{ 
+  int l;
+  unsigned int q1=0, q2=0;
+  char *u, *u1;
+  l=strlen(s);
+ 
+  u1=strpbrk(s,q); 
+  q1=u1-s;
+  
+  
+  while(u!=NULL&&u1!=NULL&& q1<strlen(s) && q2<strlen(s))
+  {
+      u=strpbrk(u1+1, q);
+      q2=u-s;
+      l=strlen(s);
+      if(q2>=strlen(s)) break;
+      
+      if(u-u1==1) 
+      {
+	  memmove((u1+1),(u1+2),(l-q2));
+	  u-=2;
+	  u1=u1-2;
+	
+      }  else u--;
+      
+      u1=strpbrk(u+1,q);  
+      q1=u1-s;
+    
+  }
+
+}
